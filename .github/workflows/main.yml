@@ -32,17 +32,17 @@ jobs:
 
       # Step 3: Initialize and Plan Terraform
       - name: Run Terraform Init
-        uses: Manjeet-Singh2428/smurf-test-1@master
+        uses: Manjeet-Singh2428/smurfTest@master
         with:
           command: init
 
       - name: Run Terraform Plan
-        uses: Manjeet-Singh2428/smurf-test-1@master
+        uses: Manjeet-Singh2428/smurfTest@master
         with:
           command: plan
 
       - name: Run Terraform apply
-        uses: Manjeet-Singh2428/smurf-test-1@master
+        uses: Manjeet-Singh2428/smurfTest@master
         with:
           command: apply
 
