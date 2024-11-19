@@ -34,16 +34,16 @@ jobs:
       - name: Run Terraform Init
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          command: init
+          command: create
 
-      - name: Run Terraform Plan
-        uses: Manjeet-Singh2428/SmurfTest@master
-        with:
-          command: plan
+      # - name: Run Terraform Plan
+      #   uses: Manjeet-Singh2428/SmurfTest@master
+      #   with:
+      #     command: plan
 
-      - name: Run Terraform apply
-        uses: Manjeet-Singh2428/SmurfTest@master
-        with:
-          command: apply
+      # - name: Run Terraform apply
+      #   uses: Manjeet-Singh2428/SmurfTest@master
+      #   with:
+      #     command: apply
 
             
