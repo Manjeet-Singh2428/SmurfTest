@@ -45,6 +45,6 @@ RUN go build -o smurf main.go && \
 # Ensure the entrypoint.sh script is executable and starts with a shebang
 RUN sed -i '1s|^|#!/bin/sh\n|' entrypoint.sh && \
     chmod +x entrypoint.sh
-RUN chmod +x entrypoint.sh
+# RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/go/src/app/entrypoint.sh"]
