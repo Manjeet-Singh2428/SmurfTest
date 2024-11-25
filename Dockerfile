@@ -9,7 +9,7 @@ RUN go build -o smurf main.go && \
     mv smurf /usr/local/bin/ && \
     chmod +x /usr/local/bin/smurf
 
-ENTRYPOINT ["/usr/local/bin/smurf"]
+# ENTRYPOINT ["/usr/local/bin/smurf"]
 
 
 
@@ -47,4 +47,4 @@ ENTRYPOINT ["/usr/local/bin/smurf"]
 #     chmod +x entrypoint.sh
 # # RUN chmod +x entrypoint.sh
 
-# ENTRYPOINT ["/go/src/app/entrypoint.sh"]
+ENTRYPOINT ["/go/src/app/entrypoint.sh"]
