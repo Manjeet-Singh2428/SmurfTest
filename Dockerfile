@@ -17,8 +17,8 @@ FROM golang:1.23-alpine
 
 # Install required packages
 RUN apk add --no-cache \
-    # git \
-    bash \
+    git \
+    # bash \
     curl \
     unzip
 
