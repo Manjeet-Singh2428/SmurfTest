@@ -31,15 +31,15 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       # Step 3: Initialize and Plan Terraform
-      - name: Run Terraform Init
+      - name: Run Terraform Init provision
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          command: init
+          command: provision
 
-      - name: Run Terraform drift Plan
-        uses: Manjeet-Singh2428/SmurfTest@master
-        with:
-          command: drift
+      # - name: Run Terraform drift Plan
+      #   uses: Manjeet-Singh2428/SmurfTest@master
+      #   with:
+      #     command: drift
 
       # - name: Run Terraform apply
       #   uses: Manjeet-Singh2428/SmurfTest@master
