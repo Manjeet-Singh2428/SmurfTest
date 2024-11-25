@@ -46,6 +46,7 @@ jobs:
       - name: Run Terraform apply
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
+          tool: stf
           command: apply
 
             
