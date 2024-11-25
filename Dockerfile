@@ -22,11 +22,11 @@ FROM golang:1.23-alpine
 #     curl \
 #     unzip
 
-# # Install Terraform
-# RUN curl -fsSL https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip -o terraform.zip && \
-#     unzip terraform.zip && \
-#     mv terraform /usr/local/bin/ && \
-#     rm terraform.zip
+# Install Terraform
+RUN curl -fsSL https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip -o terraform.zip && \
+    unzip terraform.zip && \
+    mv terraform /usr/local/bin/ && \
+    rm terraform.zip
 
 # # Install AWS CLI v2
 # RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
