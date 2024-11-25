@@ -16,11 +16,11 @@
 FROM golang:1.23-alpine
 
 # Install required packages
-# RUN apk add --no-cache \
-#     git \
-#     bash \
-#     curl \
-#     unzip
+RUN apk add --no-cache \
+    git \
+    bash \
+    curl \
+    unzip
 
 # Install Terraform
 RUN curl -fsSL https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip -o terraform.zip && \
