@@ -1,21 +1,21 @@
-FROM golang:1.23-alpine
+# FROM golang:1.23-alpine
 
 
-WORKDIR /go/src/app
-COPY . .
+# WORKDIR /go/src/app
+# COPY . .
 
-# Build the Go application
-RUN go build -o smurf main.go && \
-    mv smurf /usr/local/bin/ && \
-    chmod +x /usr/local/bin/smurf
+# # Build the Go application
+# RUN go build -o smurf main.go && \
+#     mv smurf /usr/local/bin/ && \
+#     chmod +x /usr/local/bin/smurf
 
 # ENTRYPOINT ["/usr/local/bin/smurf"]
 
 
 
-# FROM golang:1.23-alpine
+FROM golang:1.23-alpine
 
-# # Install required packages
+# Install required packages
 # RUN apk add --no-cache \
 #     git \
 #     bash \
@@ -34,17 +34,17 @@ RUN go build -o smurf main.go && \
 # ./aws/install && \
 # rm -rf aws awscliv2.zip
 
-# WORKDIR /go/src/app
-# COPY . .
+WORKDIR /go/src/app
+COPY . .
 
-# # Build the Go application
-# RUN go build -o smurf main.go && \
-#     mv smurf /usr/local/bin/ && \
-#     chmod +x /usr/local/bin/smurf
+# Build the Go application
+RUN go build -o smurf main.go && \
+    mv smurf /usr/local/bin/ && \
+    chmod +x /usr/local/bin/smurf
 
-# # Ensure the entrypoint.sh script is executable and starts with a shebang
-# RUN sed -i '1s|^|#!/bin/sh\n|' entrypoint.sh && \
-#     chmod +x entrypoint.sh
-# # RUN chmod +x entrypoint.sh
+# Ensure the entrypoint.sh script is executable and starts with a shebang
+RUN sed -i '1s|^|#!/bin/sh\n|' entrypoint.sh && \
+    chmod +x entrypoint.sh
+# RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/go/src/app/entrypoint.sh"]
