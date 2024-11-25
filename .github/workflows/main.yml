@@ -34,12 +34,14 @@ jobs:
       - name: Run Terraform Init provision
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          command: provision
+          tool: stf
+          command: init
 
-      # - name: Run Terraform drift Plan
-      #   uses: Manjeet-Singh2428/SmurfTest@master
-      #   with:
-      #     command: drift
+      - name: Run Terraform drift Plan
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          tool: stf
+          command: drift
 
       # - name: Run Terraform apply
       #   uses: Manjeet-Singh2428/SmurfTest@master

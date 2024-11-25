@@ -1,7 +1,10 @@
 name: Smurf Action
 description: A custom GitHub Action that runs the Smurf CLI tool with Docker.
-author: Your Name
+
 inputs:
+  tool:
+    description: 'Tool to use'
+    required: true
   command:
     description: "Command to run (e.g., ./smurf stf init)"
     required: true
@@ -29,10 +32,5 @@ runs:
     AWS_ACCOUNT_ID: ${{ inputs.AWS_ACCOUNT_ID }}
     AWS_REGION: ${{ inputs.AWS_REGION }}
   args:
-    - stf
-    - ${{ inputs.command }}
-    # - --provider=${{ inputs.provider }}
-
-branding:
-  icon: "package"
-  color: "blue"
+  - ${{ inputs.tool }}
+  - ${{ inputs.command }}
