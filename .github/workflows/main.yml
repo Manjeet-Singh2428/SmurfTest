@@ -73,8 +73,8 @@ jobs:
       AWS_REGION: us-east-1
       AWS_ACCOUNT_ID: '924144197303'
 
+
     steps:
-      # Step 1: Checkout Code
       - name: Checkout code
         uses: actions/checkout@v4.1.7
 
