@@ -1,3 +1,5 @@
+
+
 name: smurf AWS authentication testing
 
 on:
@@ -30,6 +32,7 @@ jobs:
           role-session-name: aws-auth
           aws-region: ${{ env.AWS_REGION }}
 
+      # Step 3: Initialize and Plan Terraform
       Step 3: Initialize and init
       - name: Run Terraform Init provision
         uses: Manjeet-Singh2428/SmurfTest@master
@@ -52,6 +55,8 @@ jobs:
           working-directory: terraform
           tool: stf
           command: apply
+
+            
 
             
 # name: smurf AWS authentication testing
