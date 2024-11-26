@@ -1,3 +1,48 @@
+# name: Smurf Action
+# description: A custom GitHub Action that runs the Smurf CLI tool with Docker.
+
+# inputs:
+#   tool:
+#     description: 'Tool to use'
+#     required: true
+#   command:
+#     description: "Command to run (e.g., ./smurf stf init)"
+#     required: true
+#   docker_username:
+#     description: "Docker Hub username"
+#     required: false
+#   docker_password:
+#     description: "Docker Hub password"
+#     required: false
+#     secret: true
+#   AWS_REGION:
+#     description: "AWS Region"
+#     required: false
+#   AWS_ACCOUNT_ID:
+#     description: "AWS Account ID"
+#     required: false
+#   provider:
+#     description: "Cloud provider (e.g., aws, gcp)"
+#     required: true
+  
+#   working_directory:
+#   description: "Path to the folder where the action should run"
+#   required: false
+#   default: "." 
+
+# runs:
+#   using: "docker"
+#   image: "Dockerfile"
+#   env:
+#     AWS_ACCOUNT_ID: ${{ inputs.AWS_ACCOUNT_ID }}
+#     AWS_REGION: ${{ inputs.AWS_REGION }}
+#   args:
+#   - ${{ inputs.working_directory }}
+#   - ${{ inputs.tool }}
+#   - ${{ inputs.command }}
+
+
+
 name: Smurf Action
 description: A custom GitHub Action that runs the Smurf CLI tool with Docker.
 
@@ -24,11 +69,10 @@ inputs:
   provider:
     description: "Cloud provider (e.g., aws, gcp)"
     required: true
-  
   working_directory:
-  description: "Path to the folder where the action should run"
-  required: false
-  default: "." 
+    description: "Path to the folder where the action should run"
+    required: false
+    default: "."
 
 runs:
   using: "docker"
@@ -37,6 +81,6 @@ runs:
     AWS_ACCOUNT_ID: ${{ inputs.AWS_ACCOUNT_ID }}
     AWS_REGION: ${{ inputs.AWS_REGION }}
   args:
-  - ${{ inputs.working_directory }}
-  - ${{ inputs.tool }}
-  - ${{ inputs.command }}
+    - ${{ inputs.working_directory }}
+    - ${{ inputs.tool }}
+    - ${{ inputs.command }}
