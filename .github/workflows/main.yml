@@ -31,11 +31,11 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       # Step 3: List files in terraform folder to verify
-      # - name: List files in terraform directory
-      #   run: ls -al terraform
+      - name: List files in terraform directory
+        run: ls -al tf
 
       # Step 4: Initialize Terraform
-      - name: Run Terraform Init provision
+      - name: Run Terraform Init
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
           working-directory: tf
@@ -43,7 +43,7 @@ jobs:
           command: init
 
       # Step 5: Run Terraform drift Plan
-      - name: Run Terraform drift Plan
+      - name: Run Terraform Plan
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
           working-directory: tf
