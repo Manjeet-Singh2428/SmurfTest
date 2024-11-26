@@ -72,7 +72,7 @@ inputs:
   working-directory:
     description: "Path to the folder where the action should run"
     required: false
-    default: "."
+    default: "tf"
 
 runs:
   using: "docker"
