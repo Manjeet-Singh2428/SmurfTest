@@ -1,62 +1,62 @@
-# name: smurf AWS authentication testing
+name: smurf AWS authentication testing
 
-# on:
-#   push:
-#     branches:
-#       - master
-#   workflow_dispatch:
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 
-# jobs:
-#   docker-build-publish:
-#     runs-on: ubuntu-latest
-#     permissions: write-all
+jobs:
+  docker-build-publish:
+    runs-on: ubuntu-latest
+    permissions: write-all
 
-#     env:
-#       DOCKER_IMAGE: testing
-#       DOCKER_TAG: 'manjeet/smurf:v1'
-#       AWS_REGION: us-east-1
-#       AWS_ACCOUNT_ID: '924144197303'
+    env:
+      DOCKER_IMAGE: testing
+      DOCKER_TAG: 'manjeet/smurf:v1'
+      AWS_REGION: us-east-1
+      AWS_ACCOUNT_ID: '924144197303'
 
-#     steps:
-#       # Step 1: Checkout Code
-#       - name: Checkout code
-#         uses: actions/checkout@v4.1.7
+    steps:
+      # Step 1: Checkout Code
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
 
-#       # Step 2: Configure AWS Credentials
-#       - name: Configure AWS credentials
-#         uses: aws-actions/configure-aws-credentials@v4
-#         with:
-#           role-to-assume: ${{ secrets.AWS_GITHUB_OIDC_ROLE }}
-#           role-session-name: aws-auth
-#           aws-region: ${{ env.AWS_REGION }}
+      # Step 2: Configure AWS Credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_GITHUB_OIDC_ROLE }}
+          role-session-name: aws-auth
+          aws-region: ${{ env.AWS_REGION }}
 
-#       # Step 3: List files in terraform folder to verify
-#       - name: List files in terraform directory
-#         run: ls -al tf
+      # Step 3: List files in terraform folder to verify
+      - name: List files in terraform directory
+        run: ls -al tf
 
-#       # Step 4: Initialize Terraform
-#       - name: Run Terraform Init
-#         uses: Manjeet-Singh2428/SmurfTest@master
-#         with:
-#           working-directory: tf
-#           tool: stf
-#           command: init
+      # Step 4: Initialize Terraform
+      - name: Run Terraform Init
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          working-directory: 'tf/'
+          tool: stf
+          command: init
 
-#       # Step 5: Run Terraform drift Plan
-#       - name: Run Terraform Plan
-#         uses: Manjeet-Singh2428/SmurfTest@master
-#         with:
-#           working-directory: tf
-#           tool: stf
-#           command: plan
+      # Step 5: Run Terraform drift Plan
+      - name: Run Terraform Plan
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          working-directory: 'tf/'
+          tool: stf
+          command: plan
 
-#       # Step 6: Run Terraform apply
-#       - name: Run Terraform apply
-#         uses: Manjeet-Singh2428/SmurfTest@master
-#         with:
-#           working-directory: tf
-#           tool: stf
-#           command: apply
+      # Step 6: Run Terraform apply
+      - name: Run Terraform apply
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          working-directory: 'tf/'
+          tool: stf
+          command: apply
 
 # name: smurf AWS authentication testing
 
@@ -172,20 +172,20 @@
 
 
 
-name: "smurf"
-permissions: write-all
-on:
-  workflow_dispatch:
-jobs:
-  control-tower:
-    uses: clouddrove/github-shared-workflows/.github/workflows/terraform_workflow.yml@master
-    with:
-      provider: aws
-      working_directory: 'tf/'
-      aws_region: us-east-1
-      # approvers: lavanya-sharma-clouddrove
-      destroy: false
-      timeout: 5
-      terraform_version: 1.6.6
-    secrets:
-      BUILD_ROLE: ${{ secrets.AWS_GITHUB_OIDC_ROLE }}
+# name: "smurf"
+# permissions: write-all
+# on:
+#   workflow_dispatch:
+# jobs:
+#   control-tower:
+#     uses: Manjeet-Singh2428/SmurfTest@master
+#     with:
+#       provider: aws
+#       working_directory: 'tf/'
+#       aws_region: us-east-1
+#       # approvers: lavanya-sharma-clouddrove
+#       destroy: false
+#       timeout: 5
+#       terraform_version: 1.6.6
+#     secrets:
+#       BUILD_ROLE: ${{ secrets.AWS_GITHUB_OIDC_ROLE }}
