@@ -1,3 +1,59 @@
+# name: smurf AWS authentication testing
+
+# on:
+#   push:
+#     branches:
+#       - master
+#   workflow_dispatch:
+
+# jobs:
+#   docker-build-publish:
+#     runs-on: ubuntu-latest
+#     permissions: write-all
+
+#     env:
+#       DOCKER_IMAGE: testing
+#       DOCKER_TAG: 'manjeet/smurf:v1'
+#       AWS_REGION: us-east-1
+#       AWS_ACCOUNT_ID: '924144197303'
+
+#     steps:
+#       # Step 1: Checkout Code
+#       - name: Checkout code
+#         uses: actions/checkout@v4.1.7
+
+#       # Step 2: Configure AWS Credentials
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v4
+#         with:
+#           role-to-assume: ${{ secrets.AWS_GITHUB_OIDC_ROLE }}
+#           role-session-name: aws-auth
+#           aws-region: ${{ env.AWS_REGION }}
+
+#       Step 3: Initialize and init
+#       - name: Run Terraform Init provision
+#         uses: Manjeet-Singh2428/SmurfTest@master
+#         with:
+#           working_directory: terraform
+#           tool: stf
+#           command: init
+      
+
+#       - name: Run Terraform drift Plan
+#         uses: Manjeet-Singh2428/SmurfTest@master
+#         with:
+#           working_directory: terraform
+#           tool: stf
+#           command: plan
+
+#       - name: Run Terraform apply
+#         uses: Manjeet-Singh2428/SmurfTest@master
+#         with:
+#           working_directory: terraform
+#           tool: stf
+#           command: apply
+
+            
 name: smurf AWS authentication testing
 
 on:
@@ -30,27 +86,10 @@ jobs:
           role-session-name: aws-auth
           aws-region: ${{ env.AWS_REGION }}
 
-      Step 3: Initialize and init
-      - name: Run Terraform Init provision
+      # Step 3: Run Smurf Command (e.g., Drift Plan)
+      - name: Run Terraform Drift Plan
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          working_directory: terraform
           tool: stf
-          command: init
-      
-
-      - name: Run Terraform drift Plan
-        uses: Manjeet-Singh2428/SmurfTest@master
-        with:
+          command: drift
           working_directory: terraform
-          tool: stf
-          command: plan
-
-      - name: Run Terraform apply
-        uses: Manjeet-Singh2428/SmurfTest@master
-        with:
-          working_directory: terraform
-          tool: stf
-          command: apply
-
-            
