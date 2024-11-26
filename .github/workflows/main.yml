@@ -86,10 +86,25 @@ jobs:
           role-session-name: aws-auth
           aws-region: ${{ env.AWS_REGION }}
 
-      # Step 3: Run Smurf Command (e.g., Drift Plan)
-      - name: Run Terraform Drift Plan
+      Step 3: Initialize and init
+      - name: Run Terraform Init provision
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          tool: stf
-          command: drift
           working_directory: terraform
+          tool: stf
+          command: init
+      
+
+      - name: Run Terraform drift Plan
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          working_directory: terraform
+          tool: stf
+          command: plan
+
+      - name: Run Terraform apply
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          working_directory: terraform
+          tool: stf
+          command: apply
