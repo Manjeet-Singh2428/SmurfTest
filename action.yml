@@ -81,6 +81,5 @@ runs:
     AWS_ACCOUNT_ID: ${{ inputs.AWS_ACCOUNT_ID }}
     AWS_REGION: ${{ inputs.AWS_REGION }}
   args:
-    - ${{ input.working-directory }}
     - ${{ inputs.tool }}
     - ${{ inputs.command }}
