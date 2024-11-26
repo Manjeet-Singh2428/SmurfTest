@@ -34,7 +34,7 @@ jobs:
       - name: Run Terraform Init provision
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          working_directory: terraform
+          working-directory: terraform
           tool: stf
           command: init
       
@@ -42,14 +42,14 @@ jobs:
       - name: Run Terraform drift Plan
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          working_directory: terraform
+          working-directory: terraform
           tool: stf
           command: plan
 
       - name: Run Terraform apply
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          working_directory: terraform
+          working-directory: terraform
           tool: stf
           command: apply
 
