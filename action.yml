@@ -69,10 +69,10 @@ inputs:
   provider:
     description: "Cloud provider (e.g., aws, gcp)"
     required: true
-  # working_directory:
-  #   description: "Path to the folder where the action should run"
-  #   required: false
-  #   default: "."
+  working-directory:
+    description: "Path to the folder where the action should run"
+    required: false
+    default: "."
 
 runs:
   using: "docker"
@@ -81,5 +81,6 @@ runs:
     AWS_ACCOUNT_ID: ${{ inputs.AWS_ACCOUNT_ID }}
     AWS_REGION: ${{ inputs.AWS_REGION }}
   args:
+    - ${{ input.working-directory}}
     - ${{ inputs.tool }}
     - ${{ inputs.command }}
