@@ -30,23 +30,26 @@ jobs:
           role-session-name: aws-auth
           aws-region: ${{ env.AWS_REGION }}
 
-      # Step 3: Initialize and Plan Terraform
-      # - name: Run Terraform Init provision
-      #   uses: Manjeet-Singh2428/SmurfTest@master
-      #   with:
-      #     tool: stf
-      #     command: provision
+      Step 3: Initialize and init
+      - name: Run Terraform Init provision
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          tool: stf
+          command: init
+          working-directory: terraform
 
       - name: Run Terraform drift Plan
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
           tool: stf
-          command: drift
+          command: plan
+          working-directory: terraform
 
-      # - name: Run Terraform apply
-      #   uses: Manjeet-Singh2428/SmurfTest@master
-      #   with:
-      #     tool: stf
-      #     command: apply
+      - name: Run Terraform apply
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          tool: stf
+          command: apply
+          working-directory: terraform
 
             
