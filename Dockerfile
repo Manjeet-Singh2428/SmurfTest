@@ -47,5 +47,5 @@ RUN sed -i '1s|^|#!/bin/sh\n|' entrypoint.sh && \
     chmod +x entrypoint.sh
 # RUN chmod +x entrypoint.sh
 
-ENTRYPOINT ["/go/src/app/entrypoint.sh"]
-# ENTRYPOINT ["/usr/local/bin/smurf"]
+# ENTRYPOINT ["/go/src/app/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/smurf"]
