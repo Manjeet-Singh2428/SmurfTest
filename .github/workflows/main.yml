@@ -9,10 +9,7 @@ on:
 jobs:
   docker-build-publish:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      contents: write
-      sts: assumeRole
+    permissions: write-all
 
     env:
       DOCKER_IMAGE: testing
