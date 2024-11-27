@@ -47,6 +47,10 @@ name: Smurf Action
 description: A custom GitHub Action that runs the Smurf CLI tool with Docker.
 
 inputs:
+  path:
+    description: Path to the Terraform configuration
+    required: false
+    default: .
   tool:
     description: 'Tool to use'
     required: true
@@ -69,10 +73,10 @@ inputs:
   provider:
     description: "Cloud provider (e.g., aws, gcp)"
     required: true
-  working-directory:
-    description: "Path to the folder where the action should run"
-    required: false
-    default: "tf"
+  # working-directory:
+  #   description: "Path to the folder where the action should run"
+  #   required: false
+  #   default: "tf"
 
 runs:
   using: "docker"
