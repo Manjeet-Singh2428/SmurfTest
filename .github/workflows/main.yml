@@ -64,7 +64,7 @@ jobs:
         with:
           path: 'tf/'
           tool: stf
-          command: apply
+          command: apply -t tf/
 
 # name: smurf AWS authentication testing
 
