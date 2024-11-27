@@ -2,7 +2,7 @@
 set -e
 
 
-cd tf || exit 1
+cd "${INPUT_PATH}" || exit 1
 # # Log in to Docker Hub if credentials are provided
 # if [ -n "$DOCKER_USERNAME" ] && [ -n "$DOCKER_PASSWORD" ]; then
 #   echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
