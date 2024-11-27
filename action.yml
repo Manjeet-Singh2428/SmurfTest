@@ -125,6 +125,5 @@ runs:
     AWS_ACCOUNT_ID: ${{ inputs.AWS_ACCOUNT_ID }}
     AWS_REGION: ${{ inputs.AWS_REGION }}
   args:
-    - ${{ inputs.path }}
     - ${{ inputs.tool }}
     - ${{ inputs.command }}
