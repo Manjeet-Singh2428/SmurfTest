@@ -38,9 +38,9 @@ jobs:
       - name: Run Terraform Init
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          # path: 'tf/'
+          path: 'tf'
           tool: stf
-          command: init -t tf/
+          command: init
 
       # # Step 5: Validate Terraform
       # - name: Run Terraform Validate
@@ -56,7 +56,7 @@ jobs:
         with:
           # path: 'tf/'
           tool: stf
-          command: plan -t tf/
+          command: plan -t tf
 
       # Step 7: Run Terraform Apply
       - name: Run Terraform Apply
@@ -64,7 +64,7 @@ jobs:
         with:
           # path: 'tf/'
           tool: stf
-          command: apply -t tf/
+          command: apply -t tf
 
 # name: smurf AWS authentication testing
 
