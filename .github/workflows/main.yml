@@ -34,7 +34,7 @@ jobs:
       - name: List files in terraform directory
         run: ls -al tf
 
-      # Step 4: Initialize Terraform
+ # Step 4: Initialize Terraform
       - name: Run Terraform Init
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
@@ -42,8 +42,24 @@ jobs:
           tool: stf
           command: init
 
+      # Step 4: Initialize Terraform
+      - name: Run Terraform validate
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          path: 'tf/'
+          tool: stf
+          command: validate
+
+       # Step 4: Initialize Terraform
+      - name: Run Terraform Init
+        uses: Manjeet-Singh2428/SmurfTest@master
+        with:
+          path: 'tf/'
+          tool: stf
+          command: fmt -check
+
       # Step 5: Run Terraform drift Plan
-      - name: Run Terraform Plan
+      - name: Run Terraform format check
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
           path: 'tf/'
