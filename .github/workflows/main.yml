@@ -38,7 +38,7 @@ jobs:
       - name: Run Terraform Init
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          # path: tf
+          path: tf
           tool: stf
           command: init
 
@@ -54,7 +54,7 @@ jobs:
       - name: Run Terraform Plan
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          # path: tf
+          path: tf
           tool: stf
           command: plan
 
@@ -62,7 +62,7 @@ jobs:
       - name: Run Terraform Apply
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
-          # path: tf
+          path: tf
           tool: stf
           command: apply
 
