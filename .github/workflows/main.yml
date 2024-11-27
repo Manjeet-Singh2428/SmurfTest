@@ -50,21 +50,13 @@ jobs:
           tool: stf
           command: validate
 
-       # Step 4: Initialize Terraform
-      - name: Run Terraform Init
-        uses: Manjeet-Singh2428/SmurfTest@master
-        with:
-          path: 'tf/'
-          tool: stf
-          command: fmt -check
-
       # Step 5: Run Terraform drift Plan
-      - name: Run Terraform format check
+      - name: Run Terraform plan
         uses: Manjeet-Singh2428/SmurfTest@master
         with:
           path: 'tf/'
           tool: stf
-          command: plan
+          command: plan -t tf/
 
       # Step 6: Run Terraform apply
       - name: Run Terraform apply
