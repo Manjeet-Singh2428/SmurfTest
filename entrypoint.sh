@@ -1,8 +1,22 @@
 #!/bin/bash
 set -e
 
+# Check if INPUT_PATH is set and non-empty
+if [ -n "${INPUT_PATH}" ]; then
+  cd "${INPUT_PATH}" || exit 1
+fi
 
-cd "${INPUT_PATH}" || exit 1
+# Execute the smurf command
+exec "/usr/local/bin/smurf" "$@"
+
+
+
+# #!/bin/bash
+# set -e
+
+# cd "${INPUT_PATH}" || exit 1
+
+# exec "/usr/local/bin/smurf" "$@"
 # # Log in to Docker Hub if credentials are provided
 # if [ -n "$DOCKER_USERNAME" ] && [ -n "$DOCKER_PASSWORD" ]; then
 #   echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
@@ -20,4 +34,4 @@ cd "${INPUT_PATH}" || exit 1
 # fi
 
 # Execute the smurf application with provided commands
-exec "/usr/local/bin/smurf" "$@"
+# exec "/usr/local/bin/smurf" "$@"
