@@ -94,7 +94,7 @@ name: Smurf Action
 description: A custom GitHub Action that runs the Smurf CLI tool with Docker.
 
 inputs:
-  path:
+  stf_path:
     description: Path to the Terraform configuration
     required: false
     default: .
