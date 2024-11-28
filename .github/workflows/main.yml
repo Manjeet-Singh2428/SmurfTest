@@ -31,8 +31,8 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       # Step 3: List files in terraform folder to verify
-      - name: List files in terraform directory
-        run: ls -al tf
+      # - name: List files in terraform directory
+      #   run: ls -al tf
 
       # Step 4: Initialize Terraform
       - name: Run Terraform Init
